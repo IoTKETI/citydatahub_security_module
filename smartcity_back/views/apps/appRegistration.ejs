@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Smartcity Hub Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/dhsec.css">
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/apps.js"></script>
+</head>
+<body>
+    <div class="join__wrap">
+        <div class="join__inner">
+            <header class="join__header">
+                <h1 class="join__title"><span class="join__title--top">CITY HUB</span>어플리케이션 등록</h1>
+            </header>
+            <main class="join__main">
+                <div id="inProgress">
+                    <fieldset>
+                        <div class="join__row">
+                            <label for="applicationName" class="join__label">어플리케이션 이름</label>
+                            <input id="applicationName" class="join__input input" type="text" name='applicationName' onchange="checkAppName();" required>
+                            <div class="warning_msg" id="applicationNameMsg" style="display:none"></div>
+                        </div>
+                        <div class="join__row">
+                            <label for="redirectUri" class="join__label">리다이렉션 URI</label>
+                            <input id="redirectUri" class="join__input input" type="text" name='redirectUri' onchange="checkUrl();" required>
+                            <div class="warning_msg" id="redirectUriMsg" style="display:none"></div>
+                        </div>
+                        <div class="join__bottom">
+                            <a class="button button__primary" type="button" style="cursor: pointer;" onclick="registerApp();">등록하기</a>
+                            <a class="button button__primary" type="button" style="background-color: #e52b50;" href="/main">돌아가기</a>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="complete" style="display:none">
+                    <p class="join__result-text" style="font-size: 25px;" ><span class="join__result-text--emphasis">Application ID :</span>
+                        <br>
+                        <a id="appId" style="border:none; font-size : 15px;"></a>
+                    </p>
+                    <br>
+                    <p class="join__result-text" style="font-size: 25px;" ><span class="join__result-text--emphasis">Application SECRET :</span>
+                        <br>
+                        <a id="appSec" style="border:none; font-size : 15px;"></a>
+                    </p>
+                    <div class="join__bottom">
+                        <a id="joinConfirm" class="button button__primary" href="/main">확인</a>
+                    </div>
+                </div>
+                <div class="footer">
+                    <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+                    <ul class="mark__list">
+                        <li class="mark__item"><span class="hidden">국토교통부</span></li>
+                        <li class="mark__item"><span class="hidden">KAIA</span></li>
+                        <li class="mark__item"><span class="hidden">KETI</span></li>
+                    </ul>
+                    <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

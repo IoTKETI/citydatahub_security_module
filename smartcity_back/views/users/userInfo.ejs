@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>내 정보 - 내 정보 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/userinfo.js"></script>
+</head>
+<body onload="loadRole()">
+  <div class="join__wrap">
+    <div class="join__inner">
+      <input type="hidden" id="userNicknameOrigin" value="<%= userInfo.nickname %>">
+      <input type="hidden" id="userEmailOrigin" value="<%= userInfo.userEmail %>">
+      <input type="hidden" id="userPhoneOrigin" value="<%= userInfo.userPhone %>">
+      <input type="hidden" id="userRoleOrigin" value="<%= userInfo.userRole %>">
+      <input type="hidden" id="aType" value="<%= isSystemAdmin %>">
+      <header class="join__header">
+        <h1 class="join__title"><span class="join__title--top">CITY HUB</span>내 정보 보기</h1>
+      </header>
+      <main class="join__main">
+        <h2 class="hidden">내 정보 보기 본문</h2>
+          <fieldset>
+            <legend>내 정보 보기 서식</legend>
+            <% if(isSystemAdmin){ %>
+            <div class="join__row">
+              <label for="role" class="join__label">권한</label>
+              <select id='role'>
+              </select>
+            </div>
+            <% } else{ %>
+            <div class="join__row">
+              <label for="role" class="join__label">권한</label>
+              <select id='role'>
+                <option selected disabled><%= userInfo.userRole %></option>
+              </select>
+            </div>
+            <% } %>
+            <div class="join__row">
+              <p class="join__label">아이디</p>
+              <p id="userId" class="join__input input" type="input" name="userId" style="font-size: 20px;" required><%=userInfo.userId%></p>
+            </div>
+            <div class="join__row">
+              <p class="join__label">닉네임</p>
+              <input id="userNickname" class="join__input input" type="text" name="nickname" style="font-size: 20px;" value="<%=userInfo.nickname%>" onchange="checkUserNickname();" required>
+              <div class="warning_msg" id="userNicknameMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+                <p class="join__label">비밀번호</p>
+                <a class="button button__outline--primary" style="width: 130px; cursor:pointer;" onclick="changePwd();">비밀번호 변경</a>
+            </div>
+            <div class="join__row">
+              <p class="join__label">이름</p>
+              <p id="userName" class="join__input input" type="input" name="name" style="font-size: 20px;" required><%=userInfo.userName%></p>
+            </div>
+            <div class="join__row">
+              <p class="join__label">이메일</p>
+              <input id="userEmail" class="join__input input" style="font-size: 20px;" type="email" name="email" value="<%=userInfo.userEmail%>" onchange="checkUserEmail();" required>
+              <div class="warning_msg" id="userEmailMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <p class="join__label">휴대폰 번호</p>
+              <input id="userPhone" class="join__input input" type="text" name="phone" style="font-size: 20px;" value="<%=userInfo.userPhone%>" onchange="checkUserPhone();" required>
+              <div class="warning_msg" id="userPhoneMsg" style="display:none"></div>
+            </div>
+            <div class="join__bottom">
+              <a id="changeMyInfoConfirm" class="button button__primary" style="cursor:pointer;" onclick="changeUserInfo();">변경하기</a>
+              <a class="button button__outline--primary" href="/">취소</a>
+            </div>
+          </fieldset>
+        <div class="footer">
+          <ul class="util__list">
+            <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+            <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+          </ul>
+          <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+          <ul class="mark__list">
+            <li class="mark__item"><span class="hidden">국토교통부</span></li>
+            <li class="mark__item"><span class="hidden">KAIA</span></li>
+            <li class="mark__item"><span class="hidden">KETI</span></li>
+          </ul>
+          <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

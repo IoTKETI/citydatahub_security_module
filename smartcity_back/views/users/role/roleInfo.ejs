@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>권한정보 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/roles.js"></script>
+</head>
+<body onload="loadRoleType();">
+  <!-- joinWrap -->
+  <div class="join__wrap">
+    <div class="join__inner">
+      <% if(roleInfo){ %>
+      <input type="hidden" id="roleIdOrigin" value='<%= roleInfo.role_id_pk %>'>
+      <input type="hidden" id="roleNameOrigin" value='<%= roleInfo.role_name %>'>
+      <input type="hidden" id="roleTypeOrigin" value='<%= roleInfo.role_type %>'>
+      <% } %>
+      <header class="join__header">
+        <% if(roleInfo){ %>
+          <h1 class="join__title"><span class="join__title--top">CITY HUB</span>권한정보 수정</h1>
+        <% }else{ %>
+          <h1 class="join__title"><span class="join__title--top">CITY HUB</span>권한정보 추가</h1>
+        <% }%>
+      </header>
+      <main class="join__main">
+        <h2 class="hidden">권한정보 추가 본문</h2>
+          <fieldset>
+            <div class="join__row">
+              <label for="roleType" class="join__label">권한 타입</label>
+                <select id='roleType'>
+                  <option value=''>--권한 타입 선택--</option>
+                  <option value='system'>system</option>
+                  <option value='admin'>admin</option>
+                  <option value='general'>general</option>
+              </select>
+            </div>
+            <div class="join__row">
+                <label for="roleName" class="join__label">권한 이름</label>
+                <% if(roleInfo){ %>
+                  <input id="roleName" class="join__input input" type="text" name="roleName" onchange="checkRoleName();" value='<%= roleInfo.role_name %>' required>
+                <% }else{ %>
+                  <input id="roleName" class="join__input input" type="text" name="roleName" onchange="checkRoleName();" required>
+                <% } %>
+                <div class="warning_msg" id="roleNameMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="roleDesc" class="join__label">권한정보 설명</label>
+              <% if(roleInfo){ %>
+                <input id="roleDesc" class="join__input input" type="text" name="roleDes" value='<%= roleInfo.description %>' required>
+              <% }else{ %>
+                <input id="roleDesc" class="join__input input" type="text" name="roleDes" required>
+              <% } %>
+              <div class="warning_msg" id="roleDescMsg" style="display:none"></div>
+            </div>
+            <div class="warning_msg" id="addRoleMsg" style="display: none; color: red; margin-top: 30px;">입력하신 정보를 확인해주세요.</div>
+            <div class="join__bottom">
+              <% if(roleInfo){ %>
+                <a id="joinConfirm" class="button button__primary" onclick="modifyRoleInfo();" style="cursor:pointer;">수정</a>
+              <% }else{ %>
+                <a id="joinConfirm" class="button button__primary" onclick="addRole();" style="cursor:pointer;">추가</a>
+              <% } %>
+              <a class="button button__outline--primary" href="#" onclick="history.back();">취소</a>
+            </div>
+          </fieldset>
+        <div class="footer">
+          <ul class="util__list">
+            <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+            <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+          </ul>
+          <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+          <ul class="mark__list">
+            <li class="mark__item"><span class="hidden">국토교통부</span></li>
+            <li class="mark__item"><span class="hidden">KAIA</span></li>
+            <li class="mark__item"><span class="hidden">KETI</span></li>
+          </ul>
+          <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- //joinWrap -->
+</body>
+</html>

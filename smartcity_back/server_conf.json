@@ -1,0 +1,14 @@
+{
+    "serverip" : "localhost",
+    "serverport" : 30000,
+    "dbUserId" : "",
+    "dbUserPwd" : "",
+    "dbHost" : "127.0.0.1",
+    "dbName" : "security",
+    "dbPort" : 5432,
+    "emailAccountId":"",
+    "emailAccountPwd":"",
+    "token_type":"JWE",
+    "program_type":"general",
+    "default_url":"http://localhost:30001"
+}

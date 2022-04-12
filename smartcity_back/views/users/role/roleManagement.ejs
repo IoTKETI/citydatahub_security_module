@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Smartcity Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/dhsec.css">
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/roles.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="join__wrap">
+        <div class="join__inner">
+            <header class="join__header">
+                <h1 class="join__title"><span class="join__title--top">CITY HUB</span>권한 정보</h1>
+            </header>
+            <main class="application__main_table">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">#</th>
+                                <th style="width: 7%;">권한정보 아이디</th>
+                                <th style="width: 7%;">권한정보 이름</th>
+                                <th style="width: 7%;">권한정보 타입</th>
+                                <th style="width: 7%;">권한정보 설명</th>
+                                <th style="width: 5%;">Delete</th>
+                                <!-- <th style="width: 5%;">Delete <input id="allCheck" type="checkbox" onclick="allCheckBoxController();"> </th> -->
+                            </tr>
+                        </thead>
+                        <% for(let i=0; i< list.length; i++){ %>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">
+                                        <%= i+1 %>
+                                    </td>
+                                    <td>
+                                        <%= list[i].role_id_pk %>
+                                    </td>
+                                    <td style="cursor:pointer;" onClick="location.href='/accounts/roles/<%= list[i].role_id_pk%>'">
+                                        <%= list[i].role_name %>
+                                    </td>
+                                    <td>
+                                        <%= list[i].role_type %>
+                                    </td>
+                                    <td>
+                                        <%= list[i].description %>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="checkBox">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <% } %>
+                    </table>
+                </div>
+                <div class="join__bottom" style="margin-top: 10px;">
+                    <a class="button button__primary" type="text" style="background-color: #0c2037; text-decoration:none; width: 200px; text-align: center; color: white; cursor: pointer;" href="/accounts/roles/registration">역할정보 추가</a>
+                    <a class="button button__primary" type="text" style="width: 200px; text-align: center; color: white; cursor: pointer;" onclick="deleteRole();">적용</a>
+                    <a class="button button__primary" type="text" style="text-decoration:none; width: 200px; text-align: center; background-color: #e52b50; color: white; cursor: pointer;" href='/'>돌아가기</a>
+                </div>
+                <div class="footer">
+                    <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+                    <ul class="mark__list">
+                        <li class="mark__item"><span class="hidden">국토교통부</span></li>
+                        <li class="mark__item"><span class="hidden">KAIA</span></li>
+                        <li class="mark__item"><span class="hidden">KETI</span></li>
+                    </ul>
+                    <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- //joinWrap -->
+</body>
+</html>

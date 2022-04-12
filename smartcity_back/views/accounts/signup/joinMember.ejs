@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>회원가입 - 개인정보입력 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/signup.js"></script>
+</head>
+<body onload="loadRole()">
+  <!-- joinWrap -->
+  <div class="join__wrap">
+    <div class="join__inner">
+      <header class="join__header">
+        <h1 class="join__title"><span class="join__title--top">CITY HUB</span>회원가입</h1>
+        <ul class="join__process-list">
+          <li id="progressStep2" class="join__process-item is-current"><span class="join__process-text--step material-icons">step1</span><span class="join__process-text">개인정보입력</span></li>
+          <li id="progressStep3" class="join__process-item"><span class="join__process-text--step material-icons">step2</span><span class="join__process-text">가입완료</span></li>
+        </ul>
+      </header>
+      <main class="join__main">
+        <h2 class="hidden">회원가입 본문</h2>
+          <fieldset id="step2">
+            <legend>회원가입 서식</legend>
+            <div class="join__row">
+              <label for="role" class="join__label">권한</label>
+              <select id='role'>
+              </select>
+            </div>
+            <div class="join__row">
+              <label for="userId" class="join__label">아이디</label>
+              <input id="userId" class="join__input input" type="text" name="userId" onchange="checkUserId();" required>
+              <div class="warning_msg" id="userIdMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userNickname" class="join__label">닉네임</label>
+              <input id="userNickname" class="join__input input" type="text" name="nickname" onchange="checkUserNickname();" required>
+              <div class="warning_msg" id="userNicknameMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userPwd" class="join__label">패스워드</label>
+              <input id="userPwd" class="join__input input" type="password" name="password" onchange="checkUserPwd();" required>
+              <div class="pwdMsg" id="userPwdMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userPwdConfirm" class="join__label">패스워드 확인</label>
+              <input id="userPwdConfirm" class="join__input input" type="password" name="passwordConfirm" onchange="checkUserPwd(true);" required>
+              <div class="pwdMsg" id="userPwdConfirmMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userName" class="join__label">이름</label>
+              <input id="userName" class="join__input input" type="text" name="name" onchange="checkUserName();" required>
+              <div class="warning_msg" id="userNameMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userEmail" class="join__label">이메일</label>
+              <input id="userEmail" class="join__input input" type="text" name="email" onchange="checkUserEmail();" required>
+              <div class="warning_msg" id="userEmailMsg" style="display:none"></div>
+            </div>
+            <div class="join__row">
+              <label for="userPhone" class="join__label">휴대폰 번호</label>
+              <input id="userPhone" class="join__input input" type="text" name="phone" onchange="checkUserPhone();" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" required>
+              <div class="warning_msg" id="userPhoneMsg" style="display:none"></div>
+            </div>
+            <div class="warning_msg" id="joinUserMsg" style="display: none; color: red; margin-top: 30px;">입력하신 정보를 확인해주세요.</div>
+            <div class="join__bottom">
+              <a id="joinConfirm" class="button button__primary" onclick="joinUser();" style="cursor:pointer;">회원가입</a>
+              <a class="button button__outline--primary" href="#" onclick="history.back()">취소</a>
+            </div>
+          </fieldset>
+          <div id="step3" style="display:none">
+            <p class="join__result-text"><span class="join__result-text--emphasis">계정</span>이 추가되었습니다.</p>
+            <div class="join__bottom">
+              <a class="button button__outline--primary" href="#" onclick="location.href=document.referrer;">메인화면 이동</a>
+            </div>
+          </div>
+        <div class="footer">
+          <ul class="util__list">
+            <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+            <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+          </ul>
+          <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+          <ul class="mark__list">
+            <li class="mark__item"><span class="hidden">국토교통부</span></li>
+            <li class="mark__item"><span class="hidden">KAIA</span></li>
+            <li class="mark__item"><span class="hidden">KETI</span></li>
+          </ul>
+          <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- //joinWrap -->
+</body>
+</html>

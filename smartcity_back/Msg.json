@@ -1,0 +1,74 @@
+{
+    "errormsg":{
+        "existUser":{
+            "result" : "failed",
+            "description": "already exist user"
+        },
+        "notExistUser":{
+            "result" : "failed",
+            "description" : "user does not exist"
+        },
+        "notExistSession":{
+            "result" : "failed",
+            "description" : "session does not exist"
+        },
+        "notExistApplication":{
+            "result" : "failed",
+            "description" : "application does not exist"
+        },
+        "dbError":{
+            "result" : "failed",
+            "description" : "unknown error"
+        },
+        "logout" : {
+            "result" : "failed",
+            "description" : "the user is not login"
+        },
+        "parameter" : {
+            "result" : "failed",
+            "description" : "invalid parameter(request)"
+        },
+        "token" : {
+            "result" : "failed",
+            "description" : "invalid token"
+        },
+        "unauthorized" : {
+            "result" : "failed",
+            "description" : "unauthorized"
+        }
+    },
+    "successmsg":{
+        "addUser" : {
+            "result" : "success",
+            "description" : "add user"
+        },
+        "addApplication" : {
+            "result" : "success",
+            "description" : "add application"
+        },
+        "deleteUser" : {
+            "result" : "success",
+            "description" : "delete user"
+        },
+        "deleteApplication" : {
+            "result" : "success",
+            "description" : "delete application"
+        },
+        "logout" : {
+            "result" : "success",
+            "description" : "user logout"
+        },
+        "addApp":{
+            "result" : "success",
+            "description" : "add application"
+        },
+        "updateAppInfo":{
+            "result" : "success",
+            "description" : "update application info"
+        },
+        "updateUserInfo":{
+            "result" : "success",
+            "description" : "update user info"
+        }
+    }
+}

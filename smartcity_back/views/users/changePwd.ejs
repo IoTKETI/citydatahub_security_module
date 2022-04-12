@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>비밀번호 변경 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/userinfo.js"></script>
+</head>
+<body>
+  <div class="join__wrap">
+    <div class="join__inner">
+      <input type="hidden" id="userIdOrigin" value="<%= userId %>">
+      <input type="hidden" id="aType" value="<%= isSystemAdmin %>">
+      <header class="join__header">
+        <h1 class="join__title"><span class="join__title--top">CITY HUB</span>비밀번호 변경</h1>
+      </header>
+      <main class="join__main">
+        <h2 class="hidden">비밀번호 변경 본문</h2>
+          <fieldset>
+            <legend>내 정보 보기 서식</legend>
+            <div class="join__row">
+                <p class="join__label">비밀번호</p>
+                <input id="userPwd" class="join__input input" type="password" onchange="checkUserPwd();" required></p>
+                <div class="pwdMsg" id="userPwdMsg" style="display:none"> 비밀번호가 일치하지 않습니다. </div>
+            </div>
+            <div class="join__row">
+                <p class="join__label">비밀번호 확인</p>
+                <input id="userPwdConfirm" class="join__input input" type="password" onchange="checkUserPwd(true);" required></p>
+                <div class="pwdMsg" id="userPwdConfirmMsg" style="display:none"> 비밀번호가 일치하지 않습니다. </div>
+            </div>
+            <div class="join__bottom">
+              <a id="changeMyInfoConfirm" class="button button__primary" style="cursor:pointer;" onclick="changePwdSubmit();">변경하기</a>
+              <a class="button button__outline--primary" style="cursor:pointer;" onclick="closeWindow()">취소</a>
+            </div>
+          </fieldset>
+        <div class="footer">
+          <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+          <ul class="mark__list">
+            <li class="mark__item"><span class="hidden">국토교통부</span></li>
+            <li class="mark__item"><span class="hidden">KAIA</span></li>
+            <li class="mark__item"><span class="hidden">KETI</span></li>
+          </ul>
+          <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

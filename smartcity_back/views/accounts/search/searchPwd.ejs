@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보 찾기 - 비밀번호 찾기 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/dhsec.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/searchinfo.js"></script>
+</head>
+<body>
+  <div class="join__wrap">
+    <div class="join__inner">
+      <header class="join__header">
+        <span class="join__title--top">CITY HUB</span>
+        <h1 id="searchPwdTitle" class="join__title">비밀번호 찾기</h1>
+      </header>
+      <main class="login">
+          <div id=searchPwdInput style="display: inline;">
+            <div class="join__row">
+                <label class="join__label">
+                    <input type="radio" checked/> 이메일로 찾기
+                </label>
+                <label class="join__label" style="margin-top:15px;"> 아이디</label>
+                <input id="searchPwdIdInput" class="join__input input" name="Id" placeholder=" 사용자 아이디" required>
+                <div class="warning_msg" id="searchPwdIdMsg" style="display:none"></div>
+                <label class="join__label" style="margin-top:15px;"> 이메일 주소</label>
+                <input id="searchPwdEmailInput" class="join__input input" type="email" name="email" placeholder=" example@example.com" required>
+                <div class="warning_msg" id="searchPwdEmailMsg" style="display:none"></div>
+            </div>
+            <!-- sms를 통한 인증 미지원
+            <div class="join__row">
+              <label for="searchUserPhone" class="join__label">
+                    <input type="radio" id="searchUserPhone" name="method" value="phone"/> 휴대폰으로 찾기
+              </label>
+              <input id="searchUserPhoneInput" class="join__input input" type="text" name="phone" placeholder="-을 빼고 입력하세요 예)01012341234" required>
+            </div>-->
+        </div>
+        <div id="searchPwdResultView" style="display: none;">
+            <p id="searchPwdResult" class="join__result-text"><span class="join__result-text--emphasis">인증 메일이 성공적으로 <br>발송되었습니다.</span></p>
+        </div>
+            <div class="join__bottom">
+              <a id="searchPwdConfirm" class="button button__primary" style="cursor: pointer;" onclick="searchUserPwd();">확인</a>
+            </div>
+            <li class="menu__item"><a class="menu__link" style="cursor: pointer;" onclick="showSearchId();">아이디 찾기</a></li>
+        <div class="footer">
+          <ul class="util__list">
+            <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+            <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+          </ul>
+          <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+          <ul class="mark__list">
+            <li class="mark__item"><span class="hidden">국토교통부</span></li>
+            <li class="mark__item"><span class="hidden">KAIA</span></li>
+            <li class="mark__item"><span class="hidden">KETI</span></li>
+          </ul>
+          <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>로그인 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/dhsec.css">
+</head>
+
+<body>
+  <!-- lgoinWrap -->
+  <div class="login__wrap">
+    <main class="login">
+      <h1 class="login__title">City Hub</h1>
+      <form class="login__form" action="/oauth2.0/decision" method="post">
+        <fieldset class="login__fieldset">
+          <div class="decision">
+            <p><%= user.nickname %>님의 다음과 같은 정보를</p>
+            <p><%= client.scope %></p>
+            <p><%= client.application_name %> 에서 접근을 요청합니다. 허용하시겠습니까?</p>
+            <input name="transaction_id" type="hidden" value="<%= transactionId %>"/>
+            <ul style="margin-top: 30px">
+              <li><button class="button button__primary" type="submit" style="height: 50px; width: 200px; text-align: center; color: white; cursor: pointer;">허용</button></li>
+              <li><a class="button button__primary" type="text" style="text-decoration:none; height: 50px; width: 200px; text-align: center; background-color: #e52b50; color: white; cursor: pointer;" href='/'>거부</a></li>
+            </ul>
+          </div>
+        </fieldset>
+      </form>
+      <div class="footer">
+        <ul class="util__list">
+          <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+          <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+        </ul>
+        <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+        <ul class="mark__list">
+          <li class="mark__item"><span class="hidden">국토교통부</span></li>
+          <li class="mark__item"><span class="hidden">KAIA</span></li>
+          <li class="mark__item"><span class="hidden">KETI</span></li>
+        </ul>
+        <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+      </div>
+    </main>
+  </div>
+  <!-- //lgoinWrap -->
+</body>
+
+</html>

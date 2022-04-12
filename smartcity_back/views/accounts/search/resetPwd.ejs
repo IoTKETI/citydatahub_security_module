@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보 설정 - 비밀번호 재설정 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/dhsec.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/searchinfo.js"></script>
+</head>
+<body>
+        <div class="join__wrap">
+                <div class="join__inner">
+                  <header class="join__header">
+                    <span class="join__title--top">CITY HUB</span>
+                    <h1 id="resetPwdTitle" class="join__title">비밀번호 재설정</h1>
+                  </header>
+                  <main class="login">
+                      <div id=resetPwdInput>
+                        <div class="join__row">
+                            <label class="join__label" style="margin-top:15px;"> 변경할 비밀번호</label>
+                            <input id="userPwd" class="join__input input" type="password" onchange="checkUserPwd()" required>
+                            <div class="pwdMsg" id="userPwdMsg" style="display:none"> 비밀번호가 일치하지 않습니다. </div>
+                        </div>
+                        <div class="join__row">
+                            <label class="join__label" style="margin-top:15px;"> 비밀번호 재입력</label>
+                            <input id="userPwdConfirm" class="join__input input" type="password" onchange="checkUserPwd(true)" required>
+                            <div class="pwdMsg" id="userPwdConfirmMsg" style="display:none"> 비밀번호가 일치하지 않습니다. </div>
+                        </div>
+                    </div>
+                    <div id=resetPwdResult style="display: none;">
+                        <p id="resetUserPwdResult" class="join__result-text"><span class="join__result-text--emphasis">비밀번호가 성공적으로 <br>변경되었습니다.</span></p>
+                    </div>
+                    <div class="warning_msg" id="userresetPwdMsg" style="display:none"></div>
+                        <div class="join__bottom">
+                          <a id="resetPwdConfirm" class="button button__primary" style="cursor:pointer;" onclick="resetPwd();">확인</a>
+                        </div>
+                    <div class="footer">
+                      <ul class="util__list">
+                        <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+                        <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+                      </ul>
+                      <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+                      <ul class="mark__list">
+                        <li class="mark__item"><span class="hidden">국토교통부</span></li>
+                        <li class="mark__item"><span class="hidden">KAIA</span></li>
+                        <li class="mark__item"><span class="hidden">KETI</span></li>
+                      </ul>
+                      <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+                    </div>
+                  </main>
+                </div>
+              </div>
+</body>
+</html>
+

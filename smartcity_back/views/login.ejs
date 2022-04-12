@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>로그인 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/dhsec.css">
+  <script type="text/javascript" src="/js/searchinfo.js"></script>
+</head>
+<body>
+  <!-- lgoinWrap -->
+  <div class="login__wrap">
+    <main class="login">
+      <h1 class="login__title">City Data Hub
+        <small class="login__title--small" style="text-align: center; margin-bottom: 15px">아이디/비밀번호를 입력하세요.</small>
+      </h1>
+      <form class="login__form" action="/security/login" method="POST">
+        <fieldset class="login__fieldset">
+          <legend>로그인 정보 입력</legend>
+            <label class="label__lgoin"><span class="hidden">아이디</span><input class="input__login" name="loginId" type="text" autocapitalize="off" autocomplete="off" placeholder="아이디" autofocus required></label>
+            <label class="label__lgoin"><span class="hidden">비밀번호</span><input class="input__login" name="loginPwd" type="password" autocapitalize="off" placeholder="비밀번호" autocomplete="off" required></label>
+            <% if(locals.error){ %>
+              <div style="text-align: center; color:red">로그인에 실패했습니다.</div>
+            <% } %>
+            <button class="button__login" type="submit">로그인</button>
+        </fieldset>
+      </form>
+      <ul class="menu__list">
+        <li class="menu__item"><a class="menu__link" href="#none" onclick="showSearchId();">아이디찾기</a></li>
+        <li class="menu__item"><a class="menu__link" href="#none" onclick="showSearchPwd();">비밀번호찾기</a></li>
+        <li class="menu__item"><a class="menu__link" href='/accounts/signup/joinMemberStep1'>회원가입</a></li> 
+      </ul>
+      <div class="footer">
+        <ul class="util__list">
+          <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+          <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+        </ul>
+        <h2 class="footer__logo"><span class="hidden">City Data Hub</span></h2>
+        <ul class="mark__list">
+          <li class="mark__item"><span class="hidden">국토교통부</span></li>
+          <li class="mark__item"><span class="hidden">KAIA</span></li>
+          <li class="mark__item"><span class="hidden">KETI</span></li>
+        </ul>
+        <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+      </div>
+    </main>
+  </div>
+  <!-- //lgoinWrap -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보 찾기 - 아이디 찾기 | 스마트 시티</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/dhsec.css">
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/searchinfo.js"></script>
+</head>
+  <body>
+    <div class="join__wrap">
+      <div class="join__inner">
+        <header class="join__header">
+          <span class="join__title--top">CITY HUB</span>
+          <h1 id="searchIdTitle" class="join__title">아이디 찾기</h1>
+        </header>
+        <main class="login">
+            <div id=searchIdInput style="display: inline;">
+              <div class="join__row">
+                  <label for="searchUserEmail" class="join__label">
+                      <input type="radio" id="searchUserEmail" name="method" value="email" onclick="showInputBox(this.id);" checked/> 이메일로 찾기
+                  </label>
+                  <input id="searchUserEmailInput" class="join__input input" type="email" style="display:'';" name="email" placeholder=" 예) example@example.com" required>
+                  <div class="warning_msg" id="searchUserEmailMsg" style="display:none"></div>
+              </div>
+              <div class="join__row">
+                <label for="searchUserPhone" class="join__label">
+                      <input type="radio" id="searchUserPhone" name="method" value="phone" onclick="showInputBox(this.id);" /> 휴대폰으로 찾기
+                </label>
+                <input id="searchUserPhoneInput" class="join__input input" type="text" style="display: none;" name="phone" placeholder=" -을 빼고 입력하세요 예) 01012341234" required>
+                <div class="warning_msg" id="searchUserPhoneMsg" style="display:none"></div>
+              </div>
+          </div>
+          <div id=searchIdResult style="display: none;">
+              <p id=userIdResult class="join__result-text"><span class="join__result-text--emphasis"></span></p>
+          </div>
+              <div class="join__bottom">
+                <a id="searchIdConfirm" class="button button__primary" style="cursor: pointer;" onclick="searchUserId();">확인</a>
+              </div>
+              <li class="menu__item"><a class="menu__link" href="#none" onclick="showSearchPwd();">비밀번호 찾기</a></li>
+          <div class="footer">
+            <ul class="util__list">
+              <li class="util__item"><a class="util__link" href="#none">이용약관</a></li>
+              <li class="util__item"><a class="util__link" href="#none">개인정보처리방침</a></li>
+            </ul>
+            <h2 class="footer__logo"><span class="hidden">City Hub</span></h2>
+            <ul class="mark__list">
+              <li class="mark__item"><span class="hidden">국토교통부</span></li>
+              <li class="mark__item"><span class="hidden">KAIA</span></li>
+              <li class="mark__item"><span class="hidden">KETI</span></li>
+            </ul>
+            <p class="footer__copyright">Copyright©SmartCity Datahub. All rights reserved.</p>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
