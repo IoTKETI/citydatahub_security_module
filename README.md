@@ -4,7 +4,7 @@
 
 
 
-![개요및 아키텍처](https://user-images.githubusercontent.com/42496861/163292617-67aa83e8-dec4-4c16-b81c-4ca91cb22c40.png)
+![그림2](https://user-images.githubusercontent.com/42496861/163292717-0de9f77d-dcd7-436e-b74f-1a9e08f2bf99.png)
 
 ## 1.1 주요 특징
 
