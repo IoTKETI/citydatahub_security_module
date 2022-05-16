@@ -67,12 +67,22 @@ router.route('/applications')
   }).get(authMiddleware.hasOwnToken(), async (req,res,next)=>{
     let user = await jwt.decode(req.headers.authorization.split(' ')[1], req.cookies.userId);
     user = user.payload;
+    if(user.role!="System_Admin"){
     DB.getClientsByValue('APPLICATION','APPLICATION_FK1',user.userId,(err,apps)=>{
-      return res.status(200).json({
+      	return res.status(200).json({
         apps
       })
     });
-  })
+  }else{
+DB.ByQuery('SELECT * FROM APPLICATION',(err,apps)=>{
+      if(err)
+        return next(createError(500));
+      else
+        return res.status(200).json({
+          apps
+        })
+  });
+}})
 
 router.route('/applications/:applicationId')
   .get(authMiddleware.hasOwnToken(), async (req,res,next)=>{ //retrieve // --- SEC-05
@@ -254,6 +264,7 @@ router.route('/users')
           return res.status(500).json(msg.errormsg.dbError);
         }
         else{
+         
           let userList = new Object;
           userList.totalCount = count;
           for(let i=0; i<count; i++){
@@ -265,7 +276,9 @@ router.route('/users')
               'phone' : list[i].phone
             }
           }
-          return res.status(200).json(userList);
+          userList = list
+	  
+         return res.status(200).json(userList);
         }
       });
     }
