@@ -34,9 +34,10 @@ class userInfo extends Component{
     getUserInfo = ()=>{
         //토큰 없으면 튕구기
         let token = cookie.load('chaut');
+        let userId = cookie.load('userId');
         
         $.ajax({
-            url : '/security/user',
+            url : '/security/users/' + userId,
             type : 'GET',
             beforeSend : (xhr)=>{
                 xhr.setRequestHeader("Authorization",'Basic '+ token);
@@ -44,7 +45,9 @@ class userInfo extends Component{
             async:false,
             success : (res)=>{
                 this.setState({
-                    user : res, //original use object
+                    user : res,
+                    userid : userId,
+                    name: res.name,
                     nickname : res.nickname,
                     email : res.email,
                     phone : res.phone
