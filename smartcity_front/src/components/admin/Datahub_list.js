@@ -25,7 +25,7 @@ class Datahub_list extends Component{
     getAppInfo= ()=>{
         let token = cookie.load('chaut');
         $.ajax({
-            url : '/apps/sysClients',
+            url : '/security/applications',
             type : 'GET',
             beforeSend : (xhr)=>{
                 xhr.setRequestHeader("Authorization",'Basic '+ token);

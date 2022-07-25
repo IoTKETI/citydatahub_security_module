@@ -24,7 +24,7 @@ class myAppList extends Component{
     getAppInfo= ()=>{
         let token = cookie.load('chaut');
         $.ajax({
-            url : '/apps/clients',
+            url : '/security/applications',
             type : 'GET',
             beforeSend : (xhr)=>{
                 xhr.setRequestHeader("Authorization",'Basic '+ token);

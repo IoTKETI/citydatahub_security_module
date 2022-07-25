@@ -24,7 +24,7 @@ class User_list extends Component{
     getAppInfo= ()=>{
         let token = cookie.load('chaut');
         $.ajax({
-            url : '/accounts/users',
+            url : '/security/users',
             type : 'GET',
             beforeSend : (xhr)=>{
                 xhr.setRequestHeader("Authorization",'Basic '+ token);
@@ -32,9 +32,8 @@ class User_list extends Component{
             
             success : (res)=>{
                 
-                console.log(res.result.rows);
                 this.setState({
-                    sysList : res.result.rows
+                    sysList : res
                 })
                 
             },
@@ -76,7 +75,7 @@ class User_list extends Component{
                 beforeSend : (xhr)=>{
                     xhr.setRequestHeader("Authorization",'Basic '+ token);
                 },
-                url:'/security/users/'+this.state.sysList[this.state.checking[i]].user_id_pk,
+                url:'/security/users/'+this.state.sysList[this.state.checking[i]].userid,
                 async:false,
                 success:function(result){
                     
@@ -138,9 +137,6 @@ class User_list extends Component{
                                         <th style={{width: '15%'}}>이름</th>
                                         <th style={{width: '10%'}}>전화번호</th>
                                         <th style={{width: '15%'}}>이메일 </th>
-                                        <th style={{width:'10%'}}>이메일 인증여부</th>
-                                        <th style={{width:'10%'}}>권한 정보</th>
-                                        <th style={{width:'10%'}}>계정 상태</th>
 
                                         <th style={{width: '10%'}}>Delete </th>
                                     </tr>
@@ -154,7 +150,7 @@ class User_list extends Component{
                                             </td>
                                             
                                             <td>
-                                                {list[key].user_id_pk}
+                                                {list[key].userid}
                                             </td>
                                             <td>
                                                 {list[key].nickname}
@@ -168,15 +164,6 @@ class User_list extends Component{
                                             <td>
                                                 {list[key].email}
                                             </td>
-                                            <th>
-                                                {String(list[key].email_verify)}
-                                            </th>
-                                            <th>
-                                                {list[key].role}
-                                            </th>
-                                            <th>
-                                                {list[key].user_state}
-                                            </th>
                                             <td>
                                             <input id={i} type="checkbox" style={{height:'20px',width:'20px'}} name='checkBox' onChange = {this.Checkbox.bind(this)}/>
                                                 
