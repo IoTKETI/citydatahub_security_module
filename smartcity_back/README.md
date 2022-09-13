@@ -1,15 +1,15 @@
 # 2.1 Backend 설치
 
-**인증/인가 모듈의 Backend를 설치하는 과정을 설명합니다. 실질적인 인증/인가를 담당하며 Node 버전 12, npm v6 이상을 권장합니다.**
+**인증/인가 모듈의 Backend를 설치하는 과정을 설명합니다. 실질적인 인증/인가를 담당하며 Node 버전 14, npm v6 이상을 권장합니다.**
 
 ## 2.1.1 Node js 및 Postgresql 설치
 
-**Centos 7 기준으로 Node js 12를 설치하는 방법은 다음과 같은 순서로 진행됩니다.**
+**Centos 7 기준으로 Node js 14를 설치하는 방법은 다음과 같은 순서로 진행됩니다.**
 
  1. `sudo yum upgrade`
  2. `sudo yum update`
  3. Repository 추가<br/>
-    `curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -`
+    `curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -`
  4. `sudo yum clean all && sudo yum makecache fast`
  5. `sudo yum install -y gcc-c++make`
  6. `sudo yum install -y nodejs`
