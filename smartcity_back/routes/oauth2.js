@@ -65,7 +65,7 @@ openid_server.grant(oauth2orize.grant.code((client, redirectUri, user, ares, are
       if(redirectUri[redirectUri.length-1]=='/'){
         redirectUri = redirectUri.substring(0,redirectUri.length-1);
       }
-      if(app[0].redirect_uri[app[0].redirect_uri-1]=='/'){
+      if(app[0].redirect_uri[app[0].redirect_uri.length-1]=='/'){
         compRedirectUri = app[0].redirect_uri.substring(0,app[0].redirect_uri.length-1);
       } else {
         compRedirectUri = app[0].redirect_uri;
