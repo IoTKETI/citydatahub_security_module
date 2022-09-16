@@ -127,8 +127,8 @@ client.connect(err => {
     INSERT INTO USERS(USER_ID_PK, PASSWORD, NICKNAME, NAME, PHONE, EMAIL, EMAIL_VERIFY, ROLE, USER_STATE) VALUES ('admin','$2b$10$tI5pZFK5bosaqUY65LcKzOOgl9cJXg/0tGpvN53X7.BAqk7ttz1uu','admin','admin','01012545678','admin@test.com','f','System_Admin','A');
     INSERT INTO application(application_id_pk, application_fk1,application_name,application_secret,redirect_uri,scope,is_trusted) VALUES ('3eRofhrl6wPWauX2u0GT', 'admin', 'react', 'yFu9svjeJvCY3PLkkpFYF1CvWo7McL7F', '${serverInfo.default_url}', 'read', 't');`
 
-  query += `INSERT INTO USERS(USER_ID_PK, PASSWORD, NICKNAME, NAME, PHONE, EMAIL, EMAIL_VERIFY, ROLE, USER_STATE) VALUES ('coreadmin','$2b$10$tI5pZFK5bosaqUY65LcKzOOgl9cJXg/0tGpvN53X7.BAqk7ttz1uu','coreadmin','coreadmin','01012545679','admin1@test.com','f','DataCoreUI_Admin','A');`
-  query += `INSERT INTO USERS(USER_ID_PK, PASSWORD, NICKNAME, NAME, PHONE, EMAIL, EMAIL_VERIFY, ROLE, USER_STATE) VALUES ('coreuser','$2b$10$tI5pZFK5bosaqUY65LcKzOOgl9cJXg/0tGpvN53X7.BAqk7ttz1uu','coreuser','coreuser','01012545670','user@test.com','f','DataCoreUI_User','A');`
+  query += serverInfo.program_type !== 'admin' ? `INSERT INTO USERS(USER_ID_PK, PASSWORD, NICKNAME, NAME, PHONE, EMAIL, EMAIL_VERIFY, ROLE, USER_STATE) VALUES ('coreadmin','$2b$10$tI5pZFK5bosaqUY65LcKzOOgl9cJXg/0tGpvN53X7.BAqk7ttz1uu','coreadmin','coreadmin','01012545679','admin1@test.com','f','DataCoreUI_Admin','A');\
+  INSERT INTO USERS(USER_ID_PK, PASSWORD, NICKNAME, NAME, PHONE, EMAIL, EMAIL_VERIFY, ROLE, USER_STATE) VALUES ('coreuser','$2b$10$tI5pZFK5bosaqUY65LcKzOOgl9cJXg/0tGpvN53X7.BAqk7ttz1uu','coreuser','coreuser','01012545670','user@test.com','f','DataCoreUI_User','A');` : "";
   // query += `INSERT INTO application(application_id_pk, application_fk1,application_name,application_secret,redirect_uri,scope,is_trusted) VALUES ('3eRofhrl6wPWauX2u0GT', 'admin', 'react', 'yFu9svjeJvCY3PLkkpFYF1CvWo7McL7F', '${serverInfo.default_url}', 'read', 't');`
   
 
