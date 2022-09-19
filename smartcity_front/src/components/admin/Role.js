@@ -135,7 +135,7 @@ class Role extends Component{
                             </table>
                         </div>
                         <div className="join__bottom" style={{marginTop: '10px'}}>
-                            <button className="button button__primary" type = "button" style ={{width: '200px',textAlign: 'center',backgroundColor: '#5e4b4e',cursor:'pointer'}}>역활정보 추가</button>
+                            {/* <button className="button button__primary" type = "button" style ={{width: '200px',textAlign: 'center',backgroundColor: '#5e4b4e',cursor:'pointer'}}>역활정보 추가</button> */}
                             <Link to ='/index'>
                             <button className="button button__primary" type="button" style={{width: '200px', textAlign: 'center'}} >적용</button>
                             </Link>
