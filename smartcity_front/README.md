@@ -14,7 +14,7 @@ React로 구현되있으며 2.1 Backend 설치에서 node 및 Npm을 설치하�
 
 프론트엔드의 디렉토리로 이동합니다.
 
-`cd citydatahub_security/smartcity_front`
+`cd citydatahub_security_module/smartcity_front`
 
 npm을 이용하여 필요한 노드모듈을 설치합니다. 이 때 리액트도 자동으로 설치됩니다.
 
