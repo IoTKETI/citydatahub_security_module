@@ -43,6 +43,7 @@
 
 ## 2.1.2 Postgresql 사용자 및 DB 생성
 **인증/인가 모듈에서 사용할 계정 및 데이터베이스를 생성합니다.**
+**Security_Admin과 Security 모듈을 별도 구성하는 경우 각각 생성합니다.**
  1. Psql 접속<br/>`psql -U postgres`
  2. 인증/인가 모듈에서 사용할 데이터베이스 생성<br/>`CREATE DATABASE 데이터베이스 이름 ENCODING 'utf-8';`
  3. 인증/인가 모듈 데이터베이스를 사용할 사용자 생성<br/>`CREATE USER 사용자 이름 password '사용할 비밀번호';`
@@ -53,7 +54,9 @@
 
 ## 2.1.3 인증/인가 모듈 서버 설정
 
-***/server_conf.json* 에서 서버 운영에 필요한 정보를 설정합니다.**
+***citydatahub_security_module/smartcity_back/server_conf.json* 에서 서버 운영에 필요한 정보를 설정합니다.**<br/>
+Security_Admin과 Security 모듈 별도 구성시 프로젝트 폴더를 별도 구성이 필요합니다.<br/>
+이때 각각의 DB 정보를 기입하고 program_type에 맞게 admin 혹은 general을 입력하십시오.<br/>
 
 ~~~json
 {
@@ -65,12 +68,14 @@
  "dbName" : "NAME of Database",
  "dbPort" : "PORT of Database",
  "emalAccountID" : "enter your email ID",
- "emailAccountPwd" : "enter your email PASSWORD"
+ "emailAccountPwd" : "enter your email PASSWORD",
+ "token_type": "enter token type JWE or JWS",
+ "program_type": "enter program type general or admin"
 }
 ~~~
  1. **serverip** : 인증/인가 모듈을 구동하는 서버의 IP를 입력
 
- 2. **serverport** : 인증/인가 모듈을 구동할 포트를 입력
+ 2. **serverport** : 인증/인가 모듈을 구동할 포트를 입력 (admin/general 별도구성시 각각 다르게설정)
 
  3. **dbUserId** : postgresql 사용자의 이름을 입력
 
@@ -86,12 +91,18 @@
 
  9. **emailAccountPwd** : 이메일 인증을 제공해줄 아이디의 비밀번호 입력
 
-    
+10. **token_type** : 인증/인가 모듈에서 사용될 Token의 방식을 지정 (JWE/JWS)
+
+11. **program_type** : 설치되는 모듈의 타입을 입력 (admin/general)
 
 ## 2.1.4 인증/인가 모듈 DB Table 생성
 
 **인증/인가 모듈에 사용할 데이터베이스에 관련 테이블을 생성하고 관리자의 계정을 생성합니다.**<br/>
-소스파일의 **/initDB/createTable.js**  를 실행합니다.<br/>
+생성하기 전에 node_modules를 설치합니다.
+smartcity_back 폴더 기준<br/>
+`npm i`<br/>
+
+node_modules가 설치 완료되면 소스파일의 **/initDB/createTable.js**  를 실행합니다.<br/>
 
 
 smartcity_back 폴더 기준<br/>
@@ -115,9 +126,7 @@ Success! 메시지가 출력되면 정상적으로 테이블이 생성 및 관�
 
 ## 2.1.5 인증/인가 모듈 실행
 
-모든 설정이 끝났으면 인증/인가 모듈이 실행 가능합니다.<br/>  node_modules를 설치합니다.
-smartcity_back 폴더 기준<br/>
-`npm i`<br/>
+모든 설정이 끝났으면 인증/인가 모듈이 실행 가능합니다.<br/> 
 
 인증/인가 모듈을 사용할 때 키쌍이 필요합니다.
 ### 키쌍 생성
