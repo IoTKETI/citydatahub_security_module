@@ -48,7 +48,24 @@ package.json의 "scripts" 의 "start" 부분을 수정합니다.
 }
 ```
 
+<br/>
 
+backend를 실행한 주소와 맞추어 proxy의 수정이 필요합니다. <br/>
+localhost의 30000번 포트에서 구동된 경우, 아래와 같이 변경합니다 <br/>
+
+```
+"proxy": "http://localhost:30000"
+```
+
+<br/>
+
+admin 에서 실행하는 경우 PROGRAM_TYPE 속성을 admin으로 수정이 필요합니다.<br/>
+***citydatahub_security_module/smartcity_front/src/config.js***
+```
+export const PROGRAM_TYPE = 'admin';
+```
+
+<br/>
 
 설정이 완료되었으면 2.1 Backend 설치 과정에서 설치된 pm2를 이용하여 실행합니다.
 
