@@ -476,7 +476,7 @@ server.exchange(oauth2orize.exchange.clientCredentials((client, scope, done) => 
     let issued_at_time = Math.floor(Date.now()/1000);
     let expire_time = (issued_at_time + ms('1h')/1000);//*1000; //1hour
     let payload = {
-      typ : 'c',
+      type : 'c',
       userId: null // sign
     };
     jwtOption.options.aud = client.application_id_pk;
