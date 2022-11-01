@@ -4,6 +4,41 @@
             "result" : "failed",
             "description": "already exist user"
         },
+        "appUriFormat":{
+            "result":"failed",
+            "description":"Application name or redirect URL format mismatch"
+        },
+        "appIdCheck":{
+            "result":"failed",
+            "description":"Appid values does not match."
+        },
+        "joinIdCheck":{
+            "result":"failed",
+            "description":"userId format mismatch"
+        },
+        "joinNicknameCheck":{
+            "result":"failed",
+            "description":"userNickname format mismatch"
+        },"joinPwCheck":{
+            "result":"failed",
+            "description":"user Password format Check"
+        },
+        "joinNameCheck":{
+            "result":"failed",
+            "description":"user name fromat Check"
+        },
+        "joinEmailCheck":{
+            "result":"failed",
+            "description":"user Email format Check"
+        },
+        "joinPhoneCheck":{
+            "result":"failed",
+            "description":"user Phone format Check"
+        },
+        "updateUserId":{
+            "result":"failed",
+            "description":"No matching userId found"
+        },
         "notExistUser":{
             "result" : "failed",
             "description" : "user does not exist"

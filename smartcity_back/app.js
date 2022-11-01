@@ -44,6 +44,7 @@ const endpointRouter = require('./routes/apis');
 const userRouter = require('./routes/users');
 const accountRouter = require('./routes/accounts');
 const appRouter = require('./routes/apps');
+const morganMiddleware = require('./util/morganMiddleware');
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { maxAge: 10 * 30 * 1000 * 3} // 15 minutes
   //h, m , s, ms
+  
 }));
 
 // init passport module
@@ -89,14 +91,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(helmet());
 
-const logDir = path.join(__dirname, 'log');
-fs.existsSync(logDir) || fs.mkdirSync(logDir);
-const Log = rfs('server.log',{
-  interval : '1d',
-  path : logDir
-});
-app.use(morgan('combined',{stream: Log}));
-
+// const logDir = path.join(__dirname, 'log');
+// fs.existsSync(logDir) || fs.mkdirSync(logDir);
+// const Log = rfs('server.log',{
+//   interval : '1d',
+//   path : logDir
+// });
+// app.use(morgan('combined',{stream: Log}));
+app.use(morganMiddleware);
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/apps', appRouter);
