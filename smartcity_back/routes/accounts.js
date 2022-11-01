@@ -11,6 +11,8 @@ const regExp = require('../regExp');
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 const authMiddleware = require('../util/authMiddleware');
+const {logger} = require('../util/logger');
+const msg = require('../Msg.json');
 
 const moment = require('moment');
 require('moment-timezone');
@@ -29,7 +31,8 @@ router.route('/searchId')
         if(err)
           return res.status(500).send();
         else if(resCount<1){
-          return res.status(404).send();
+          logger.error(`[/searchId/Email][getInfoByValue] 404 Error ${msg.errormsg.notExistUser.description}`)
+          return res.status(404).send(msg.errormsg.notExistUser);
         }
         else {
           let respond = (result.user_id_pk).slice(0,(result.user_id_pk.length*2/3)) + '***';
@@ -42,7 +45,8 @@ router.route('/searchId')
         if(err)
           return res.status(500).send();
         else if(resCount<1){
-          return res.status(404).send();
+          logger.error(`[searchId/Phone][getInfoByValue] 404 Error ${msg.errormsg.notExistUser.description}`)
+          return res.status(404).send(msg.errormsg.notExistUser);
         }
         else {
           let respond = (result.user_id_pk).slice(0,(result.user_id_pk.length*2/3)) + '***';
@@ -51,9 +55,11 @@ router.route('/searchId')
       })
     }
     else
-      return res.status(400).send();
+      logger.error(`[searchId 400 Error 잘못된 접근입니다..`)
+      return res.status(400).send(msg.errormsg.dbError);
     }
     catch(e){
+      logger.error(e)
       return res.status(400).send();
     }
   })
@@ -76,8 +82,10 @@ router.route('/searchPwd')
         if(err){
           return res.status(500).send();
         }
-        else if(!resCount)
-          return res.status(404).send();
+        else if(!resCount){
+           logger.error(`[searchPwd] 404 Error ${msg.errormsg.notExistUser.description}`)
+           return res.status(404).send(msg.errormsg.notExistUser);
+        }
         else{
           DB.ByQuery("SELECT * FROM USERS INNER JOIN VERICODE on (USERS.USER_ID_PK=VERICODE.VERICODE_FK1) WHERE USERS.USER_ID_PK="+"\'"+userId+"\' AND USERS.EMAIL=\'"+userEmail+"\'",(err,result,resCount)=>{
             if(err){
