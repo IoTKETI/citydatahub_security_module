@@ -1,14 +1,14 @@
 {
-    "serverip" : "localhost",
-    "serverport" : 30000,
-    "dbUserId" : "pnu",
-    "dbUserPwd" : "l1954tp!",
-    "dbHost" : "127.0.0.1",
-    "dbName" : "security",
-    "dbPort" : 5432,
-    "emailAccountId":"wh77g77@gmail.com",
-    "emailAccountPwd":"guswls45@",
-    "token_type":"JWS",
-    "program_type":"general",
-    "default_url":"http://localhost:30001"
+  "serverip": "localhost",
+  "serverport": 30000,
+  "dbUserId": "pnu",
+  "dbUserPwd": "l1954tp!",
+  "dbHost": "127.0.0.1",
+  "dbName": "security",
+  "dbPort": 5432,
+  "emailAccountId": "simontest320@gmail.com",
+  "emailAccountPwd": "vqzslfekqiehpagr",
+  "token_type": "JWS",
+  "program_type": "admin",
+  "default_url": "http://localhost:3000"
 }
