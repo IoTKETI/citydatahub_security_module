@@ -6,9 +6,9 @@
   "dbHost": "127.0.0.1",
   "dbName": "security",
   "dbPort": 5432,
-  "emailAccountId": "simontest320@gmail.com",
-  "emailAccountPwd": "vqzslfekqiehpagr",
+  "emailAccountId": "wh77g77@gmail.com",
+  "emailAccountPwd": "guswls45@",
   "token_type": "JWS",
-  "program_type": "admin",
-  "default_url": "http://localhost:3000"
+  "program_type": "general",
+  "default_url": "http://localhost:30001"
 }

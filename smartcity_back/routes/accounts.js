@@ -531,6 +531,7 @@ router.post("/_password", async (req, res, next) => {
     if (!check) {
       throw new Error("이미 전송된 메일이 있습니다.");
     }
+
     // 생성된 vericode가 없으면 vericode 생성
     const createVerify = await _password.createVerify();
 

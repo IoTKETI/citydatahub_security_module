@@ -18,13 +18,12 @@ module.exports = {
         "'";
       const check = await DB._ByQuery(query);
       const { rows } = check;
-      console.log(rows);
       if (rows.length === 0) {
-        console.log(1);
         throw new Error("일치하는 회원정보가 없습니다.");
         // return false;
       }
       // 일치하는 회원정보가 있으면, 생성된 vericode가 있는지 확인
+
       const verifyQuery = `
       SELECT
         *
@@ -43,7 +42,9 @@ module.exports = {
       };
       const result = await DB._ByQuery(verifyQuery);
       const { rowCount } = result;
-
+      if (rowCount === 0) {
+        return true;
+      }
       let expireTime = result.rows[0].expire_time.toLocaleString(
         "ko-KR",
         timeFormatOptions
@@ -51,10 +52,6 @@ module.exports = {
       let nowTime = new Date(
         moment().format("YYYY-MM-DD HH:mm:ss")
       ).toLocaleString("ko-KR", timeFormatOptions);
-      console.log("expire:", expireTime, "nowTime:", nowTime);
-      if (rowCount === 0) {
-        return true;
-      }
       // 이미 발급된 vericode가 있으면, 유효기간 체크.. 유효기간이 지났으면 vericode 삭제
       if (nowTime > expireTime) {
         const query =
@@ -76,6 +73,7 @@ module.exports = {
 
     let codeExpireTime = new Date();
     codeExpireTime.setMinutes(codeExpireTime.getMinutes() + extendTime);
+    console.log(codeExpireTime);
     let verifyCode = UID.getUid(32);
     return { verifyCode, codeExpireTime };
   },

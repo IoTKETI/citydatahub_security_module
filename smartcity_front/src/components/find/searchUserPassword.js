@@ -48,7 +48,7 @@ class searchUserPassword extends Component {
     //e.preventDefault();
     if (this.state.id != null && this.state.email != null) {
       $.ajax({
-        url: "/accounts/searchPwd",
+        url: "/accounts/_password",
         type: "POST",
         data: {
           userId: this.state.id,
