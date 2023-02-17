@@ -1,14 +1,14 @@
 {
-  "serverip": "localhost",
-  "serverport": 30000,
-  "dbUserId": "pnu",
-  "dbUserPwd": "l1954tp!",
-  "dbHost": "127.0.0.1",
-  "dbName": "security",
-  "dbPort": 5432,
-  "emailAccountId": "wh77g77@gmail.com",
-  "emailAccountPwd": "guswls45@",
-  "token_type": "JWS",
-  "program_type": "general",
-  "default_url": "http://localhost:30001"
+  "serverip": "Standalone IP(Default:localhost)",
+  "serverport": "Standalone PORT Number(Default:30000)",
+  "dbUserId": "enter your DB ID",
+  "dbUserPwd": "enter your DB PASSWORD",
+  "dbHost": "IP of Database",
+  "dbName": "NAME of Database",
+  "dbPort": "PORT of Database",
+  "emailAccountId": "enter your e-mail for sending verification code",
+  "emailAccountPwd": "account verification code",
+  "token_type": "enter token type JWE or JWS",
+  "program_type": "enter program type general or admin",
+  "default_url": "enter front-end url"
 }
